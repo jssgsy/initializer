@@ -13,9 +13,9 @@ import java.util.Collections;
  */
 public class MybatisPlusAutoGenerator {
 
-    public static String url = "jdbc:postgresql://127.0.0.1:5432/univ";
+    public static String url = "jdbc:mysql://localhost:3306/mybatis?useAffectedRows=true";
     public static String username = "test";
-    public static String password = "1234";
+    public static String password = "123";
 
   public static void main(String[] args) {
 
@@ -33,13 +33,16 @@ public class MybatisPlusAutoGenerator {
                 // 2. packageConfig
                 .packageConfig(builder -> {
                     builder.parent("com.univ.initializer")
-                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, projectPath + "/src/main/resources/mapper"));
+                            .entity("entity.mysql")
+                            .mapper("mapper.mysql")
+                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, projectPath + "/src/main/resources/mapper/mysql"));
                 })
                 // 3. strategyConfig
                 .strategyConfig(builder -> {
-                    // builder.addInclude("");// 设置需要生成的表名
+                     builder.addInclude("single");// 设置需要生成的表名
                             // .addTablePrefix("t_", "c_"); // 设置过滤表前缀
                     // 默认生成的service接口前会加I，这样设置就不会加了
+                    builder.entityBuilder().enableLombok();
                     builder.serviceBuilder().formatServiceFileName("%sService");
                 })
                 // 4. templateEngine

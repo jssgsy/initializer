@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--根标签，设置dubug为true可以打印出logback本身的日志，默认为false-->
-<configuration scan="false" scanPeriod="60000" debug="true">
+<configuration scan="false" scanPeriod="60000" debug="false">
 
     <springProperty name="LogHome" source="logback.file.path" defaultValue="/tmp/logs" />
 
@@ -69,7 +69,7 @@
     </logger>
 
     <springProfile name="dev">
-        <logger name = "com.univ.initializer" level = "info" additivity="true">
+        <logger name = "com.univ.initializer" level = "debug" additivity="true">
             <appender-ref ref="STDOUT" />
         </logger>
     </springProfile>

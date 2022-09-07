@@ -1,8 +1,8 @@
 package com.univ.initializer.controller;
 
 
-import com.univ.initializer.entity.Demo;
-import com.univ.initializer.service.DBTestService;
+import com.univ.initializer.service.DbTestService;
+import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @Resource
-    private DBTestService dbTestService;
+    private DbTestService dbTestService;
 
     @ResponseBody
     @RequestMapping("/home")
@@ -28,7 +28,7 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping("/db")
-    public Demo testDBConnect(Long id) {
-        return dbTestService.getById(id);
+    public Map<String, Object> testDBConnect(Long id) {
+        return dbTestService.multiDataSource(id);
     }
 }

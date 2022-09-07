@@ -1,4 +1,4 @@
-package com.univ.initializer.entity;
+package com.univ.initializer.entity.postgres;
 
 import io.swagger.annotations.ApiModel;
 import java.io.Serializable;

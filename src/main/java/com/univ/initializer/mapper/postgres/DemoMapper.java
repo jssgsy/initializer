@@ -1,7 +1,7 @@
-package com.univ.initializer.mapper;
+package com.univ.initializer.mapper.postgres;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.univ.initializer.entity.Demo;
+import com.univ.initializer.entity.postgres.Demo;
 
 /**
  * @author univ
