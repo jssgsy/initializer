@@ -1,5 +1,6 @@
 package com.univ.initializer.config.db;
 
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
@@ -36,9 +37,9 @@ public class PostgresConfig {
 	static final String MAPPER_LOCATION = "classpath:mapper/postgres/*.xml";
 
 	@Bean
-	@ConfigurationProperties(prefix = "second.postgres")
+	@ConfigurationProperties(prefix = "spring.datasource.druid.first")
 	public DataSource postgresDataSource() {
-		return DataSourceBuilder.create().build();
+		return DruidDataSourceBuilder.create().build();
 	}
 	
 	@Bean

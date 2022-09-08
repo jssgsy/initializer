@@ -1,5 +1,6 @@
 package com.univ.initializer.config.db;
 
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
@@ -32,9 +33,9 @@ public class MysqlConfig {
 
 	@Primary
 	@Bean
-	@ConfigurationProperties(prefix = "primary.mysql")
+	@ConfigurationProperties(prefix = "spring.datasource.druid.second")
 	public DataSource mysqlDataSource() {
-		return DataSourceBuilder.create().build();
+		return DruidDataSourceBuilder.create().build();
 	}
 
 	@Primary
