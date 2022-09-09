@@ -33,25 +33,24 @@ public class MybatisPlusAutoGenerator {
                 // 2. packageConfig
                 .packageConfig(builder -> {
                     builder.parent("com.univ.initializer")
-                            .entity("entity.mysql")
-                            .mapper("mapper.mysql")
-                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, projectPath + "/src/main/resources/mapper/mysql"));
+                            .entity("entity.dynamic")
+                            .mapper("mapper.dynamic")
+                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, projectPath + "/src/main/resources/mapper/dynamic"));
                 })
                 // 3. strategyConfig
                 .strategyConfig(builder -> {
-                     builder.addInclude("single");// 设置需要生成的表名
+                     builder.addInclude("test");// 设置需要生成的表名
                             // .addTablePrefix("t_", "c_"); // 设置过滤表前缀
                     // 默认生成的service接口前会加I，这样设置就不会加了
                     builder.entityBuilder().enableLombok();
-                    builder.serviceBuilder().formatServiceFileName("%sService");
+                    builder.serviceBuilder().formatServiceFileName("DynamicDataSource%sService");
+                    builder.serviceBuilder().formatServiceImplFileName("DynamicDataSource%sServiceImpl");
                 })
                 // 4. templateEngine
                 .templateEngine(new VelocityTemplateEngine())   // 使用Velocity引擎模板，默认的是Velocity引擎模板、不同的引擎要引入不同的包
                 // 5. templateConfig
                 // 为空表示不生成controller,其它的如service，mapper等一样
                 .templateConfig(builder -> builder.controller(""))
-                .templateConfig(builder -> builder.service(""))
-                .templateConfig(builder -> builder.serviceImpl(""))
                 .execute();
     }
 }

@@ -25,7 +25,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
  *
  * @author univ 2022/9/5 2:32 下午
  */
-@Configuration
+//@Configuration
 @MapperScan(basePackages = "com.univ.initializer.mapper.mysql", sqlSessionTemplateRef = "mysqlSqlSessionTemplate")
 public class MysqlConfig {
 

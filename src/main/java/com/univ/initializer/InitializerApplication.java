@@ -10,7 +10,6 @@ import org.springframework.cache.annotation.EnableCaching;
  * @author univ
  * 2022/9/05
  */
-// mytodo：有说DataSourceTransactionManagerAutoConfiguration类也需要排除的，需要深究
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,
         DataSourceTransactionManagerAutoConfiguration.class})
 // 多数据源的情况下，这里就不用再配置了

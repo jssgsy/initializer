@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @author univ
  * 2022/9/05
  */
-@Service
+//@Service
 @Slf4j
 public class DbTestServiceImpl implements DbTestService {
 
