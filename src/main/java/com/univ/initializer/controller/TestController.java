@@ -1,10 +1,11 @@
 package com.univ.initializer.controller;
 
 
-import com.univ.initializer.service.DbTestService;
+import com.univ.initializer.service.TestService;
 import java.util.Map;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @Resource
-    private DbTestService dbTestService;
+    private TestService testService;
 
     @ResponseBody
     @GetMapping("/home")
@@ -33,8 +34,11 @@ public class TestController {
     @GetMapping("/db")
     public Map<String, Object> testDBConnect(Long id) {
         log.info("xxx");
-        return dbTestService.multiDataSource(id);
+        return testService.multiDataSource(id);
     }
+
+    @Resource
+    private AsyncTaskExecutor asyncTaskExecutor;
 
     /**
      * logback调用链验证
@@ -44,8 +48,10 @@ public class TestController {
     @GetMapping("/log")
     public String log() {
         log.info("first line");
-        log.info("first line");
-        log.info("third line");
+
+        asyncTaskExecutor.submit(() -> {
+            log.info("sub thread log");
+        });
         return "ok";
     }
 

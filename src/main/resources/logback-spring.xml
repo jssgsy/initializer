@@ -72,6 +72,10 @@
         <logger name = "com.univ.initializer" level = "debug" additivity="true">
             <appender-ref ref="STDOUT" />
         </logger>
+        <!--想查看更多日志时，放开此注释-->
+        <!--<root level = "info">
+            <appender-ref ref="STDOUT" />
+        </root>-->
     </springProfile>
 
     <springProfile name="!dev">

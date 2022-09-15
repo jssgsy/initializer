@@ -8,7 +8,7 @@ import com.univ.initializer.entity.mysql.Single;
 import com.univ.initializer.entity.postgres.Demo;
 import com.univ.initializer.mapper.mysql.SingleMapper;
 import com.univ.initializer.mapper.postgres.DemoMapper;
-import com.univ.initializer.service.DbTestService;
+import com.univ.initializer.service.TestService;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
-public class DbTestServiceImpl implements DbTestService {
+public class TestServiceImpl implements TestService {
 
     /**
      * postgres库中的表
