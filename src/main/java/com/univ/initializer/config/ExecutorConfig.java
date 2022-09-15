@@ -15,20 +15,23 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class ExecutorConfig {
 
 	@Bean
-	AsyncTaskExecutor asyncTaskExecutor() {
+	public AsyncTaskExecutor asyncTaskExecutor() {
 		ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
 		// 重点1：为ThreadPoolTaskExecutor设置TaskDecorator值
 		threadPoolTaskExecutor.setTaskDecorator(taskDecorator());
 		return threadPoolTaskExecutor;
 	}
 
-	TaskDecorator taskDecorator() {
+	private TaskDecorator taskDecorator() {
 		return runnable -> {
 			// 用来传递traceID
 			Map<String, String> contextMap = MDC.getCopyOfContextMap();
 			return () -> {
 				try {
-					MDC.setContextMap(contextMap);
+					// 如果请求没有经过入口处(如是定时任务启动),则contextMap为空
+					if (null != contextMap && contextMap.size() > 0) {
+						MDC.setContextMap(contextMap);
+					}
 					runnable.run();
 				} finally {
 					// 重点2：保险些。正常来说，即使是多线程环境，但只要在请求的结尾处有清空，则每次进入这里时MDC的值应该都已经在请求开头处重新设置好值了

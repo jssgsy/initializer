@@ -1,6 +1,7 @@
 package com.univ.initializer.service;
 
 
+import com.univ.initializer.event.DemoEvent;
 import java.util.Map;
 
 /**
@@ -20,5 +21,11 @@ public interface TestService {
      * 验证@Async
      */
     void async();
+
+    /**
+     * 事件监听
+     * @param event
+     */
+    void listenDemoEvent(DemoEvent event);
 
 }

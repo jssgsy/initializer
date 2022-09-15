@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.univ.initializer.entity.mysql.Single;
 import com.univ.initializer.entity.postgres.Demo;
+import com.univ.initializer.event.DemoEvent;
 import com.univ.initializer.mapper.mysql.SingleMapper;
 import com.univ.initializer.mapper.postgres.DemoMapper;
 import com.univ.initializer.service.TestService;
@@ -13,6 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.event.EventListener;
+import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -61,5 +64,16 @@ public class TestServiceImpl implements TestService {
     public void async() {
         log.info("@Async修饰的方法执行了，观察是否新线程，观察是否获取到TraceID");
     }
+
+    /**
+     * 这里不用@Async也能异步执行了。{@link com.univ.initializer.config.EventConfig#applicationEventMulticaster(AsyncTaskExecutor)}
+     * @param event
+     */
+    @Override
+    @EventListener(classes = DemoEvent.class)
+    public void listenDemoEvent(DemoEvent event) {
+        log.info("监听到DemoEvent事件了");
+    }
+
 
 }
