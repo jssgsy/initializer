@@ -49,9 +49,13 @@ public class TestController {
     public String log() {
         log.info("first line");
 
+        // asyncTaskExecutor支持
         asyncTaskExecutor.submit(() -> {
             log.info("sub thread log");
         });
+
+        // @Async支持
+        testService.async();
         return "ok";
     }
 

@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
@@ -53,6 +54,12 @@ public class TestServiceImpl implements TestService {
         map.put("post", r1.getRecords());
         map.put("mysql", r2.getRecords());
         return map;
+    }
+
+    @Override
+    @Async
+    public void async() {
+        log.info("@Async修饰的方法执行了，观察是否新线程，观察是否获取到TraceID");
     }
 
 }

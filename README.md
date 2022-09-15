@@ -8,3 +8,4 @@
 
 # logback调用链
 * LogTraceInterceptor.java
+* ThreadPoolTaskExecutor及@Async等异步任务均支持调用链；

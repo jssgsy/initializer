@@ -16,4 +16,9 @@ public interface TestService {
      */
     Map<String, Object> multiDataSource(Long id);
 
+    /**
+     * 验证@Async
+     */
+    void async();
+
 }
