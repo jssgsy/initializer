@@ -72,7 +72,7 @@ public class TestServiceImpl implements TestService {
     @Override
     @EventListener(classes = DemoEvent.class)
     public void listenDemoEvent(DemoEvent event) {
-        log.info("监听到DemoEvent事件了");
+        log.info("监听到DemoEvent事件了, event:{}", event);
     }
 
 

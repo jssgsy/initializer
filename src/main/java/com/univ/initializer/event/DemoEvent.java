@@ -1,18 +1,13 @@
 package com.univ.initializer.event;
 
-import org.springframework.context.ApplicationEvent;
-
 /**
+ * 事件壳，必须有，因为受限于spring提供的ApplicationEvent，其没有无参构造函数，导致子类也必须定义有参构造函数
  * @author univ 2022/9/15 11:07 上午
  */
-public class DemoEvent extends ApplicationEvent {
+public class DemoEvent extends BaseEvent<DemoEventData> {
 
-	/**
-	 * Create a new ApplicationEvent.
-	 *
-	 * @param source the object on which the event initially occurred (never {@code null})
-	 */
-	public DemoEvent(Object source) {
-		super(source);
+	public DemoEvent(Object source, DemoEventData demoEventData) {
+		super(source, demoEventData);
 	}
+
 }

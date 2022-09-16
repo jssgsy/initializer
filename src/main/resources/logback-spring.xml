@@ -63,19 +63,19 @@
     </appender>
 
     <!--默认全部进文件-->
-    <logger name = "com.univ.initializer" level = "info" additivity="false">
+    <logger name = "com.univ.initializer" level = "info" additivity="true">
         <appender-ref ref="ASYNC" />
         <appender-ref ref="error_log" />
     </logger>
 
     <springProfile name="dev">
-        <logger name = "com.univ.initializer" level = "debug" additivity="true">
+        <!--<logger name = "com.univ.initializer" level = "debug" additivity="false">
             <appender-ref ref="STDOUT" />
-        </logger>
+        </logger>-->
         <!--想查看更多日志时，放开此注释-->
-        <!--<root level = "info">
+        <root level = "info">
             <appender-ref ref="STDOUT" />
-        </root>-->
+        </root>
     </springProfile>
 
     <springProfile name="!dev">

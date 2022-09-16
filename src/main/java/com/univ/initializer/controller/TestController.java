@@ -2,6 +2,7 @@ package com.univ.initializer.controller;
 
 
 import com.univ.initializer.event.DemoEvent;
+import com.univ.initializer.event.DemoEventData;
 import com.univ.initializer.service.TestService;
 import java.util.Map;
 import javax.annotation.Resource;
@@ -67,7 +68,7 @@ public class TestController {
     @ResponseBody
     @GetMapping("/event")
     public String event() {
-        DemoEvent demoEvent = new DemoEvent("haha");
+        DemoEvent demoEvent = new DemoEvent(this, new DemoEventData());
         applicationEventPublisher.publishEvent(demoEvent);
         log.info("事件已经被发送");
         return "ok";
