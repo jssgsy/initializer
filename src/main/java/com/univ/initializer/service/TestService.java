@@ -28,4 +28,15 @@ public interface TestService {
      */
     void listenDemoEvent(DemoEvent event);
 
+    /**
+     * 验证@TransactionalEventListener的适用
+     * @param event
+     */
+    void transactionListenDemoEvent(DemoEvent event);
+
+    /**
+     * 模拟db操作时抛出异常，用来测试事务
+     */
+    void dbThrowException();
+
 }

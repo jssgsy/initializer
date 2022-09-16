@@ -13,3 +13,5 @@
 # 事件
 * EventConfig.java ;
 * 默认异步监听处理了；
+* @TransactionalEventListener：只有在发布事件的方法中没有db的事务回滚才会监听到消息；
+    * 而@EventListener则只要事件发布就会监听到

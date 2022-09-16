@@ -65,12 +65,29 @@ public class TestController {
         return "ok";
     }
 
+    /**
+     * 普通的事务
+     *
+     * @return
+     */
     @ResponseBody
     @GetMapping("/event")
     public String event() {
         DemoEvent demoEvent = new DemoEvent(this, new DemoEventData());
         applicationEventPublisher.publishEvent(demoEvent);
         log.info("事件已经被发送");
+        return "ok";
+    }
+
+    /**
+     * 模拟db操作时抛出异常，用来测试事务
+     *
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/event/transaction")
+    public String eventTransaction() {
+        testService.dbThrowException();
         return "ok";
     }
 

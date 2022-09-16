@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.univ.initializer.entity.mysql.Single;
 import com.univ.initializer.entity.postgres.Demo;
 import com.univ.initializer.event.DemoEvent;
+import com.univ.initializer.event.DemoEventData;
 import com.univ.initializer.mapper.mysql.SingleMapper;
 import com.univ.initializer.mapper.postgres.DemoMapper;
 import com.univ.initializer.service.TestService;
@@ -14,10 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 /**
  * @author univ
@@ -38,6 +42,9 @@ public class TestServiceImpl implements TestService {
      */
     @Resource
     private SingleMapper singleMapper;
+
+    @Resource
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @Override
     public Map<String, Object> multiDataSource(Long id) {
@@ -72,7 +79,32 @@ public class TestServiceImpl implements TestService {
     @Override
     @EventListener(classes = DemoEvent.class)
     public void listenDemoEvent(DemoEvent event) {
-        log.info("监听到DemoEvent事件了, event:{}", event);
+        log.info("@EventListener 监听到DemoEvent事件了, event:{}", event);
+    }
+
+    /**
+     * 此时如果抛出事件的方法有db事务回滚，则这里不会监听到
+     * @param event
+     */
+    @Override
+    @TransactionalEventListener
+    public void transactionListenDemoEvent(DemoEvent event) {
+        log.info("@TransactionalEventListener 监听到DemoEvent事件了, event:{}", event);
+    }
+
+    /**
+     * 此时{@link #listenDemoEvent}会监听到消息，而{@link #transactionListenDemoEvent}不会监听到消息
+     */
+    @Override
+    @Transactional(rollbackFor = RuntimeException.class)
+    public void dbThrowException() {
+        Single single = singleMapper.selectById(1L);
+        log.info("更新之前， {}", single);
+        single.setAge(single.getAge() + 100);
+        int i = singleMapper.updateById(single);
+        log.info("更新db的结果: {}", i > 0);
+        applicationEventPublisher.publishEvent(new DemoEvent(this, new DemoEventData()));
+        throw new RuntimeException("故意抛出异常了，观察事务回滚");
     }
 
 

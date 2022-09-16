@@ -62,7 +62,7 @@
         <appender-ref ref ="info_log"/>
     </appender>
 
-    <!--默认全部进文件-->
+    <!--默认全部进文件，根据实际情况设置additivity为false-->
     <logger name = "com.univ.initializer" level = "info" additivity="true">
         <appender-ref ref="ASYNC" />
         <appender-ref ref="error_log" />
