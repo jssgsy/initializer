@@ -32,14 +32,14 @@ public class TestController {
     @ResponseBody
     @GetMapping("/home")
     public String test() {
-        System.out.println("ok");
+        log.info("home ok");
         return "ok";
     }
 
     @ResponseBody
     @GetMapping("/db")
     public Map<String, Object> testDBConnect(Long id) {
-        log.info("xxx");
+        log.info("testDBConnect ok");
         return testService.multiDataSource(id);
     }
 
