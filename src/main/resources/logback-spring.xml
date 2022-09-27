@@ -4,6 +4,7 @@
 <configuration scan="false" scanPeriod="60000" debug="false">
 
     <springProperty name="LogHome" source="logback.file.path" defaultValue="/tmp/logs" />
+    <springProperty scope="context" name="logstashEnabled" source="logstash.enabled" defaultValue="false" />
 
     <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%thread] %-5level %logger - %msg%n"/>
     <!--本地开发用-->
@@ -69,13 +70,52 @@
     </logger>
 
     <springProfile name="dev">
-        <!--<logger name = "com.univ.initializer" level = "debug" additivity="false">
+        <if condition='property("logstashEnabled").equals("true")'>
+            <then>
+                <appender name="INFO_LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+                    <!--是logstash的连接地址 -->
+                    <destination>127.0.0.1:4570</destination>
+                    <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+                        <providers>
+                            <timestamp>
+                                <timeZone>UTC</timeZone>
+                            </timestamp>
+                            <pattern>
+                                <pattern>
+                                    {
+                                    "traceId": "%X{traceId}",
+                                    "logLevel": "%level",
+                                    "serviceName": "${springAppName:-SpringApp}",
+                                    "pid": "${PID:-}",
+                                    "thread": "%thread",
+                                    "class": "%logger{40}",
+                                    "line":"%L",
+                                    "message": "%message"
+                                    }
+                                </pattern>
+                            </pattern>
+                        </providers>
+                    </encoder>
+                    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                        <level>INFO</level>
+                        <onMatch>ACCEPT</onMatch>
+                        <onMismatch>DENY</onMismatch>
+                    </filter>
+                </appender>
+
+                <logger name = "com.univ.initializer" level = "debug" additivity="false">
+                    <appender-ref ref="INFO_LOGSTASH" />
+                </logger>
+            </then>
+        </if>
+
+        <logger name = "com.univ.initializer" level = "debug" additivity="false">
             <appender-ref ref="STDOUT" />
-        </logger>-->
+        </logger>
         <!--想查看更多日志时，放开此注释-->
-        <root level = "info">
+       <!-- <root level = "info">
             <appender-ref ref="STDOUT" />
-        </root>
+        </root>-->
     </springProfile>
 
     <springProfile name="!dev">

@@ -85,6 +85,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--有多种形式的encoder，如logstash-redis-encoder-->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>4.9</version>
+        </dependency>
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
