@@ -34,8 +34,8 @@ public class TestServiceImpl implements TestService {
     /**
      * postgres库中的表
      */
-    @Resource
-    private DemoMapper demoMapper;
+//    @Resource
+//    private DemoMapper demoMapper;
 
     /**
      * mysql库中的表
@@ -48,20 +48,21 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public Map<String, Object> multiDataSource(Long id) {
+        Map<String, Object> map = new HashMap<>();
+
         // 直接验证分页可行；
-        LambdaQueryWrapper<Demo> queryWrapper = Wrappers.lambdaQuery(Demo.class);
+        /*LambdaQueryWrapper<Demo> queryWrapper = Wrappers.lambdaQuery(Demo.class);
         Page<Demo> page = new Page<>();
         page.setCurrent(2);
         page.setSize(2);
         Page<Demo> r1 = demoMapper.selectPage(page, queryWrapper);
+        map.put("postgresql", r1.getRecords());*/
 
         Page<Single> page1 = new Page<>();
         page1.setCurrent(2);
         page1.setSize(3);
         LambdaQueryWrapper<Single> queryWrapper1 = Wrappers.lambdaQuery(Single.class);
         Page<Single> r2 = singleMapper.selectPage(page1, queryWrapper1);
-        Map<String, Object> map = new HashMap<>();
-        map.put("post", r1.getRecords());
         map.put("mysql", r2.getRecords());
         return map;
     }

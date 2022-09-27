@@ -21,6 +21,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 /**
  * 多数据源配置：postgres连接配置
  *
+ * 注：开发环境需要启动postgresql数据库，但大部分情况下可能都没启用，所以这里暂时注释掉，需要的时候放开即可；
+ *
  * 1. 关于扫描路径：
  * 	MapperScan：指定要扫描的Mapper接口
  * 	MAPPER_LOCATION：指定要扫描的mapper xml文件
@@ -30,8 +32,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
  *
  * @author univ 2022/9/5 2:32 下午
  */
-@Configuration
-@MapperScan(basePackages = "com.univ.initializer.mapper.postgres", sqlSessionTemplateRef = "postgresSqlSessionTemplate")
+//@Configuration
+//@MapperScan(basePackages = "com.univ.initializer.mapper.postgres", sqlSessionTemplateRef = "postgresSqlSessionTemplate")
 public class PostgresConfig {
 
 	static final String MAPPER_LOCATION = "classpath:mapper/postgres/*.xml";
