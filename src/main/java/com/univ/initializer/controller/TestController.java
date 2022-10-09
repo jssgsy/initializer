@@ -1,9 +1,12 @@
 package com.univ.initializer.controller;
 
 
+import com.univ.initializer.entity.kingbase.KingbaseTest;
 import com.univ.initializer.event.DemoEvent;
 import com.univ.initializer.event.DemoEventData;
 import com.univ.initializer.service.TestService;
+
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +44,12 @@ public class TestController {
     public Map<String, Object> testDBConnect(Long id) {
         log.info("testDBConnect ok");
         return testService.multiDataSource(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/db/kingbase")
+    public List<KingbaseTest> kingbase(int page, int pageSize) {
+        return testService.kingbase(page, pageSize);
     }
 
     @Resource

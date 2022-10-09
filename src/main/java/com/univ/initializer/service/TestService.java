@@ -1,7 +1,10 @@
 package com.univ.initializer.service;
 
 
+import com.univ.initializer.entity.kingbase.KingbaseTest;
 import com.univ.initializer.event.DemoEvent;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,6 +12,14 @@ import java.util.Map;
  * 2022/9/05
  */
 public interface TestService {
+
+    /**
+     * 验证kingbase数据库连接，加上分页
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    List<KingbaseTest> kingbase(int page, int pageSize);
 
     /**
      * 多数据源：postgres

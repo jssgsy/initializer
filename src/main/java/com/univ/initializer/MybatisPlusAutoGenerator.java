@@ -1,7 +1,9 @@
 package com.univ.initializer;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.config.querys.KingbaseESQuery;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import java.util.Collections;
 
