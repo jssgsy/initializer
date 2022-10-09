@@ -20,8 +20,8 @@ import javax.sql.DataSource;
 /**
  * mybatis-plus支持 kingbase，因此与mysql与postgresq在使用上并无差别
  */
-@Configuration
-@MapperScan(basePackages = "com.univ.initializer.mapper.kingbase", sqlSessionTemplateRef = "kingbaseSqlSessionTemplate")
+//@Configuration
+//@MapperScan(basePackages = "com.univ.initializer.mapper.kingbase", sqlSessionTemplateRef = "kingbaseSqlSessionTemplate")
 public class KingBaseConfig {
     static final String MAPPER_LOCATION = "classpath:mapper/kingbase/*.xml";
 

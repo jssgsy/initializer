@@ -13,6 +13,8 @@ import com.univ.initializer.mapper.kingbase.KingbaseTestMapper;
 import com.univ.initializer.mapper.mysql.SingleMapper;
 import com.univ.initializer.mapper.postgres.DemoMapper;
 import com.univ.initializer.service.TestService;
+
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +42,8 @@ public class TestServiceImpl implements TestService {
 //    @Resource
 //    private DemoMapper demoMapper;
 
-    @Resource
-    private KingbaseTestMapper kingbaseTestMapper;
+   /* @Resource
+    private KingbaseTestMapper kingbaseTestMapper;*/
     /**
      * mysql库中的表
      */
@@ -53,12 +55,13 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public List<KingbaseTest> kingbase(int page, int pageSize) {
-        log.info("调用kingbase了");
+        /*log.info("调用kingbase了");
         Page<KingbaseTest> page1 = new Page<>();
         page1.setCurrent(page);
         page1.setSize(pageSize);
         LambdaQueryWrapper<KingbaseTest> queryWrapper1 = Wrappers.lambdaQuery(KingbaseTest.class);
-        return kingbaseTestMapper.selectPage(page1, queryWrapper1).getRecords();
+        return kingbaseTestMapper.selectPage(page1, queryWrapper1).getRecords();*/
+        return Collections.emptyList();
     }
 
     @Override
