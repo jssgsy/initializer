@@ -1,6 +1,6 @@
 services:
   initializer:
-    # 使用build来构建image
+    # 使用build来构建image，生成的image名为${项目名}_service名，即initializer_initializer:latest
     build: ./
     networks:
       - dbnet
@@ -17,7 +17,7 @@ services:
     command: ["./mvnw", "spring-boot:run"]
 
   mysql:
-    # 直接使用指定image
+    # 直接使用指定image，此时image名就为mysql:5.7
     image: mysql:5.7
     container_name: mysqlserver
     networks:
