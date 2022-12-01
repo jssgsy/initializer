@@ -1,0 +1,35 @@
+services:
+  initializer:
+    # 使用build来构建image
+    build: ./
+    networks:
+      - dbnet
+    # 将容器的8090端口映射给宿主机的8080
+    ports:
+      - 8080:8090
+    depends_on:
+      - mysql
+    volumes:
+      # 冒号右边不能有空格！
+      - maven_m2:/root/.m2
+      # bind mounts，将当前目录挂载到容器的/app目录，开发阶段很有用；
+      - ./:/app
+    command: ["./mvnw", "spring-boot:run"]
+
+  mysql:
+    # 直接使用指定image
+    image: mysql:5.7
+    container_name: mysqlserver
+    networks:
+      - dbnet
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+    volumes:
+      - ./data/mysql/data:/var/lib/mysql
+
+networks:
+  # 先docker network create dbnet
+  dbnet:
+    external: true
+volumes:
+  maven_m2:
