@@ -109,8 +109,9 @@
             </then>
         </if>
 
-        <logger name = "com.univ.initializer" level = "debug" additivity="false">
+        <logger name = "com.univ.initializer" level = "info" additivity="false">
             <appender-ref ref="STDOUT" />
+            <appender-ref ref="error_log" />
         </logger>
         <!--想查看更多日志时，放开此注释-->
        <!-- <root level = "info">
