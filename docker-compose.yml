@@ -7,6 +7,8 @@ services:
     # 将容器的8090端口映射给宿主机的8080
     ports:
       - 8080:8090
+      # 远程调试用的端口
+      - 5001:5001
     depends_on:
       - mysql
     volumes:

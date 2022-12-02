@@ -150,12 +150,6 @@
 
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
@@ -192,6 +186,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5001</jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
