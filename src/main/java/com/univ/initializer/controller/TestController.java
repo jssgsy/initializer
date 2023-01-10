@@ -1,11 +1,13 @@
 package com.univ.initializer.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.univ.initializer.config.NacosItemConfig;
 import com.univ.initializer.entity.kingbase.KingbaseTest;
 import com.univ.initializer.event.DemoEvent;
 import com.univ.initializer.event.DemoEventData;
 import com.univ.initializer.service.TestService;
-
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
@@ -98,6 +100,21 @@ public class TestController {
     public String eventTransaction() {
         testService.dbThrowException();
         return "ok";
+    }
+
+    @Resource
+    private NacosItemConfig nacosItemConfig;
+
+    @ResponseBody
+    @GetMapping("/nacos/get")
+    public Map<String, ?> nacos() {
+        HashMap<String, Object> hashMap = new HashMap<String, Object>() {{
+            put("city", nacosItemConfig.getCity());
+            put("name", nacosItemConfig.getName());
+            put("age", nacosItemConfig.getAge());
+        }};
+        System.out.println(JSONObject.toJSONString(hashMap));
+        return hashMap;
     }
 
 }

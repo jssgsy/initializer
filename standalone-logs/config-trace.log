@@ -1,0 +1,7 @@
+2023-01-10 09:52:11,447|nacos|com.univ|DEFAULT_GROUP|null|null|1672390542743|pull|ok|-1|172.18.0.4|false
+2023-01-10 09:59:12,685|nacos|com.univ|DEFAULT_GROUP|null|null|1673315952500|nacos|persist|pub|-1|e00e075f0c37f28b6f43d540fe09ecef
+2023-01-10 09:59:12,719|nacos|com.univ|DEFAULT_GROUP|null|null|1673315952500|172.18.0.2|dump|ok|219|26
+2023-01-10 09:59:13,010|nacos|com.univ|DEFAULT_GROUP|null|null|1673315952500|pull|ok|510|172.18.0.4|true
+2023-01-10 10:04:55,979|nacos|com.univ|DEFAULT_GROUP|null|null|1673315952500|pull|ok|-1|172.18.0.4|false
+2023-01-10 10:08:06,676|nacos|com.univ|DEFAULT_GROUP|null|null|1673315952500|pull|ok|-1|172.18.0.4|false
+2023-01-10 10:14:42,107|nacos|com.univ|DEFAULT_GROUP|null|null|1673315952500|pull|ok|-1|172.18.0.4|false

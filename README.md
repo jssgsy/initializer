@@ -15,3 +15,14 @@
 * 默认异步监听处理了；
 * @TransactionalEventListener：只有在发布事件的方法中没有db的事务回滚才会监听到消息；
     * 而@EventListener则只要事件发布就会监听到
+  
+# docker启动
+除了常规启动外，也可使用docker方式启动
+```
+docker compose up
+```
+注：需新新建容器间通信的网络：
+```
+# dbnet:容器间通信的网络名
+docker network create dbnet
+```

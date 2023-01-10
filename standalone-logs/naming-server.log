@@ -1,0 +1,158 @@
+2023-01-10 09:51:57,162 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 09:51:57,162 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 09:51:57,637 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 09:51:57,638 INFO listen for service meta change
+
+2023-01-10 09:52:04,500 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 09:52:04,501 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 09:52:04,503 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 09:52:04,503 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 09:52:07,631 INFO Load instance extension handler []
+
+2023-01-10 10:04:18,113 INFO Client connection 1673315530718_172.18.0.4_51846 disconnect, remove instances and subscribers
+
+2023-01-10 10:04:19,564 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2023-01-10 10:04:19,586 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2023-01-10 10:04:41,332 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 10:04:41,332 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 10:04:41,800 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 10:04:41,815 INFO listen for service meta change
+
+2023-01-10 10:04:47,625 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 10:04:47,625 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 10:04:47,629 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 10:04:47,629 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 10:04:50,472 INFO Load instance extension handler []
+
+2023-01-10 10:05:00,261 INFO Client connection 1673316295326_172.18.0.4_40110 disconnect, remove instances and subscribers
+
+2023-01-10 10:07:21,489 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2023-01-10 10:07:21,539 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2023-01-10 10:07:51,925 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 10:07:51,925 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 10:07:52,217 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 10:07:52,221 INFO listen for service meta change
+
+2023-01-10 10:07:57,604 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 10:07:57,604 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 10:07:57,605 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 10:07:57,605 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 10:08:00,987 INFO Load instance extension handler []
+
+2023-01-10 10:09:06,065 INFO Client connection 1673316485644_172.18.0.4_40118 disconnect, remove instances and subscribers
+
+2023-01-10 10:09:06,986 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2023-01-10 10:09:07,005 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2023-01-10 10:10:14,684 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 10:10:14,684 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 10:10:15,305 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 10:10:15,315 INFO listen for service meta change
+
+2023-01-10 10:10:22,198 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 10:10:22,199 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 10:10:22,201 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 10:10:22,202 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 10:10:25,210 INFO Load instance extension handler []
+
+2023-01-10 10:10:49,601 INFO Client connection 1673316627476_172.18.0.4_40148 disconnect, remove instances and subscribers
+
+2023-01-10 10:10:50,455 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2023-01-10 10:10:50,492 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2023-01-10 10:12:51,061 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 10:12:51,064 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 10:12:51,540 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 10:12:51,552 INFO listen for service meta change
+
+2023-01-10 10:12:55,837 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 10:12:55,838 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 10:12:55,839 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 10:12:55,839 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 10:12:58,325 INFO Load instance extension handler []
+
+2023-01-10 10:14:56,774 INFO Client connection 1673316881306_172.18.0.4_40172 disconnect, remove instances and subscribers
+
+2023-01-10 10:15:31,214 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2023-01-10 10:15:31,250 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2023-01-10 10:16:28,093 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 10:16:28,094 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 10:16:28,705 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 10:16:28,715 INFO listen for service meta change
+
+2023-01-10 10:16:37,101 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 10:16:37,102 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 10:16:37,105 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 10:16:37,105 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 10:16:39,244 INFO Load instance extension handler []
+
+2023-01-10 10:20:09,536 WARN naming.distro config will be removed, please use core.protocol.distro replace.
+
+2023-01-10 10:20:09,536 WARN Using naming.distro config to replace core.distro config
+
+2023-01-10 10:20:09,898 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2023-01-10 10:20:09,905 INFO listen for service meta change
+
+2023-01-10 10:20:17,784 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2023-01-10 10:20:17,784 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2023-01-10 10:20:17,784 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2023-01-10 10:20:17,785 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2023-01-10 10:20:19,724 INFO Load instance extension handler []
+
+2023-01-10 10:20:34,278 INFO Client connection 1673317222323_172.18.0.4_40232 disconnect, remove instances and subscribers
+

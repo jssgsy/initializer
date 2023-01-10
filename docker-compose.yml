@@ -6,11 +6,14 @@ services:
       - dbnet
     # 将容器的8090端口映射给宿主机的8080
     ports:
-      - 8080:8090
+      - 8090:8090
       # 远程调试用的端口
       - 5001:5001
     depends_on:
-      - mysql
+      mysql:
+        condition: service_started
+      nacos:
+        condition: service_started
     volumes:
       # 冒号右边不能有空格！
       - maven_m2:/root/.m2
@@ -28,6 +31,20 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
       - ./data/mysql/data:/var/lib/mysql
+  nacos:
+    image: nacos/nacos-server:v2.1.2
+    container_name: nacos
+    hostname: nacos
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    networks:
+      - dbnet
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
 
 networks:
   # 先docker network create dbnet

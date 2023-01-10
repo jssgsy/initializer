@@ -1,0 +1,282 @@
+2023-01-10 09:52:04,701 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 09:52:05,642 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 09:52:05,745 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 09:52:05,819 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 09:52:06,587 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 09:52:06,624 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 09:52:06,627 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 09:52:06,730 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=16, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 09:52:06,746 INFO create raft group : naming_instance_metadata
+
+2023-01-10 09:52:07,049 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 09:52:07,134 INFO create raft group : naming_service_metadata
+
+2023-01-10 09:52:07,343 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 09:52:07,388 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='nacos:7848', term=16, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:19,723 INFO shutdown jraft server
+
+2023-01-10 10:04:19,728 INFO ========= The raft protocol is starting to close =========
+
+2023-01-10 10:04:19,810 INFO ========= The raft protocol has been closed =========
+
+2023-01-10 10:04:47,792 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 10:04:48,209 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 10:04:48,282 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 10:04:48,373 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 10:04:49,186 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:04:49,203 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:04:49,209 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:49,424 INFO create raft group : naming_instance_metadata
+
+2023-01-10 10:04:49,434 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=17, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:49,580 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:49,628 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='nacos:7848', term=17, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:49,635 INFO create raft group : naming_service_metadata
+
+2023-01-10 10:04:49,785 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:49,837 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='nacos:7848', term=17, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:04:50,807 ERROR Failed to join the cluster, retry...
+
+java.lang.IllegalStateException: Fail to get leader of group naming_instance_metadata
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:631)
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:524)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.registerSelfToCluster(JRaftServer.java:353)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.lambda$createMultiRaftGroup$0(JRaftServer.java:264)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-01-10 10:04:50,807 ERROR Failed to join the cluster, retry...
+
+java.lang.IllegalStateException: Fail to get leader of group naming_persistent_service_v2
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:631)
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:524)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.registerSelfToCluster(JRaftServer.java:353)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.lambda$createMultiRaftGroup$0(JRaftServer.java:264)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-01-10 10:07:21,823 INFO shutdown jraft server
+
+2023-01-10 10:07:21,835 INFO ========= The raft protocol is starting to close =========
+
+2023-01-10 10:07:22,050 INFO ========= The raft protocol has been closed =========
+
+2023-01-10 10:07:57,801 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 10:07:58,608 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 10:07:58,734 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 10:07:58,817 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 10:07:59,662 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:07:59,688 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:07:59,693 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:07:59,874 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=18, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:07:59,917 INFO create raft group : naming_instance_metadata
+
+2023-01-10 10:08:00,138 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:08:00,206 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='nacos:7848', term=18, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:08:00,219 INFO create raft group : naming_service_metadata
+
+2023-01-10 10:08:00,417 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:08:01,287 ERROR Failed to join the cluster, retry...
+
+java.lang.IllegalStateException: Fail to get leader of group naming_persistent_service_v2
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:631)
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:524)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.registerSelfToCluster(JRaftServer.java:353)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.lambda$createMultiRaftGroup$0(JRaftServer.java:264)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-01-10 10:09:07,105 INFO shutdown jraft server
+
+2023-01-10 10:09:07,108 INFO ========= The raft protocol is starting to close =========
+
+2023-01-10 10:09:07,197 INFO ========= The raft protocol has been closed =========
+
+2023-01-10 10:10:22,348 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 10:10:23,303 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 10:10:23,442 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 10:10:23,525 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 10:10:24,359 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:10:24,392 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:10:24,396 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:10:24,610 INFO create raft group : naming_instance_metadata
+
+2023-01-10 10:10:24,620 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=19, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:10:24,746 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:10:24,801 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='nacos:7848', term=19, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:10:24,806 INFO create raft group : naming_service_metadata
+
+2023-01-10 10:10:24,883 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:10:24,959 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='nacos:7848', term=19, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:10:50,599 INFO shutdown jraft server
+
+2023-01-10 10:10:50,602 INFO ========= The raft protocol is starting to close =========
+
+2023-01-10 10:10:50,695 INFO ========= The raft protocol has been closed =========
+
+2023-01-10 10:12:55,905 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 10:12:56,349 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 10:12:56,481 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 10:12:56,616 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 10:12:57,161 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:12:57,191 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:12:57,197 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:12:57,352 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=20, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:12:57,371 INFO create raft group : naming_instance_metadata
+
+2023-01-10 10:12:57,493 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:12:57,553 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='nacos:7848', term=20, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:12:57,560 INFO create raft group : naming_service_metadata
+
+2023-01-10 10:12:57,693 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:12:57,786 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='nacos:7848', term=20, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:12:58,687 ERROR Failed to join the cluster, retry...
+
+java.lang.IllegalStateException: Fail to get leader of group naming_persistent_service_v2
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:631)
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:524)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.registerSelfToCluster(JRaftServer.java:353)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.lambda$createMultiRaftGroup$0(JRaftServer.java:264)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-01-10 10:12:58,764 ERROR Failed to join the cluster, retry...
+
+java.lang.IllegalStateException: Fail to get leader of group naming_instance_metadata
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:631)
+	at com.alipay.sofa.jraft.core.CliServiceImpl.getPeers(CliServiceImpl.java:524)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.registerSelfToCluster(JRaftServer.java:353)
+	at com.alibaba.nacos.core.distributed.raft.JRaftServer.lambda$createMultiRaftGroup$0(JRaftServer.java:264)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-01-10 10:16:37,248 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 10:16:37,541 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 10:16:37,575 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 10:16:37,628 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 10:16:38,176 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:16:38,204 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:16:38,211 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:16:38,360 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=21, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:16:38,466 INFO create raft group : naming_instance_metadata
+
+2023-01-10 10:16:38,643 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:16:38,743 INFO create raft group : naming_service_metadata
+
+2023-01-10 10:16:38,852 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:16:38,881 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='nacos:7848', term=21, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:20:17,873 INFO Initializes the Raft protocol, raft-config info : {}
+
+2023-01-10 10:20:18,249 INFO ========= The raft protocol is starting... =========
+
+2023-01-10 10:20:18,283 INFO ========= The raft protocol start finished... =========
+
+2023-01-10 10:20:18,339 INFO create raft group : naming_persistent_service_v2
+
+2023-01-10 10:20:18,854 INFO snapshot start to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:20:18,873 INFO snapshot success to load from : /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot/snapshot_15
+
+2023-01-10 10:20:18,876 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:20:19,042 INFO This Raft event changes : RaftEvent{groupId='naming_persistent_service_v2', leader='nacos:7848', term=22, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:20:19,080 INFO create raft group : naming_instance_metadata
+
+2023-01-10 10:20:19,214 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:20:19,279 INFO create raft group : naming_service_metadata
+
+2023-01-10 10:20:19,280 INFO This Raft event changes : RaftEvent{groupId='naming_instance_metadata', leader='nacos:7848', term=22, raftClusterInfo=[nacos:7848]}
+
+2023-01-10 10:20:19,374 INFO This Raft event changes : RaftEvent{groupId='naming_service_metadata', leader='null', term=null, raftClusterInfo=[nacos:7848]}
+

@@ -114,9 +114,9 @@
             <appender-ref ref="error_log" />
         </logger>
         <!--想查看更多日志时，放开此注释-->
-       <!-- <root level = "info">
+        <root level = "info">
             <appender-ref ref="STDOUT" />
-        </root>-->
+        </root>
     </springProfile>
 
     <springProfile name="!dev">
