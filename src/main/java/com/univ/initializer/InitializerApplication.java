@@ -36,10 +36,11 @@ public class InitializerApplication {
         log.info("\n----------------------------------------------------------\n\t" +
                 "Application initializer is running! Access URLs:\n\t" +
                 "注意端口替换成容器的端口(如有)\n\t" +
+                "ip: \t\t" + ip +
                 "Local: \t\thttp://localhost:" + port + path + "/\n\t" +
-                "External: \thttp://" + ip + ":" + port + path + "/\n\t" +
-                "swagger-ui: \thttp://" + ip + ":" + port + path + "/swagger-ui.html\n\t" +
-                "Doc: \t\thttp://" + ip + ":" + port + path + "/doc.html\n" +
+                "External: \thttp://localhost" + ":" + port + path + "/\n\t" +
+                "swagger-ui: \thttp://localhost" + ":" + port + path + "/swagger-ui.html\n\t" +
+                "Doc: \t\thttp://localhost" + ":" + port + path + "/doc.html\n" +
                 "active profile: \t\t" + JSONObject.toJSONString(env.getActiveProfiles()) + "\n" +
                 "----------------------------------------------------------");
     }

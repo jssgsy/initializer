@@ -45,6 +45,16 @@ services:
     environment:
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
+      # 增加如下配置项，则表示使用mysql作数据存储，否则则是默认的derby存储
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=mysqlserver
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_DB_NAME=nacos
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=1234
+    depends_on:
+      mysql:
+        condition: service_started
 
 networks:
   # 先docker network create dbnet
