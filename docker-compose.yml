@@ -9,11 +9,14 @@ services:
       - 8090:8090
       # 远程调试用的端口
       - 5001:5001
+#    运行于linux下，且需要访问宿主机服务则需要如下配置；
+#    extra_hosts:
+#      - host.docker.internal:host-gateway
     depends_on:
       mysql:
         condition: service_started
-      nacos:
-        condition: service_started
+#      nacos:
+#        condition: service_started
     volumes:
       # 冒号右边不能有空格！
       - maven_m2:/root/.m2
@@ -31,6 +34,7 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
       - ./data/mysql/data:/var/lib/mysql
+# 如果部署在宿主机，注释如下service
   nacos:
     image: nacos/nacos-server:v2.1.2
     container_name: nacos
@@ -53,6 +57,7 @@ services:
       - MYSQL_SERVICE_USER=root
       - MYSQL_SERVICE_PASSWORD=1234
     depends_on:
+      # 如果使用mysql作数据存储，则这里最好依赖下
       mysql:
         condition: service_started
 
