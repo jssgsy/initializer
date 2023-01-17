@@ -2,6 +2,9 @@ package com.univ.initializer.controller;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.PatternLayout;
+import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
+import ch.qos.logback.core.ConsoleAppender;
 import com.univ.initializer.util.response.R;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,6 +50,28 @@ public class LogbackController {
 				put("newLevel", newLevel);
 			}
 		});
+	}
+
+	/**
+	 * 动态修改ConsoleAppender的pattern
+	 * 如用在引入的三方jar包中有logback.xml，但pattern不是自己想要的
+	 */
+	@GetMapping("/pattern/change")
+	public void changeStdoutPattern() {
+		ch.qos.logback.classic.LoggerContext loggerContext =(ch.qos.logback.classic.LoggerContext) LoggerFactory
+				.getILoggerFactory();
+		log.info("before");
+		Logger root = loggerContext.getLogger("root");
+		// 强转，从debug来
+		ConsoleAppender appender = (ConsoleAppender) root.getAppender("STDOUT");
+		// 强转，从debug来
+		PatternLayoutEncoder encoder = (PatternLayoutEncoder) appender.getEncoder();
+		// 强转，从debug来
+		PatternLayout layout = (PatternLayout) encoder.getLayout();
+		layout.setPattern("%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n");
+//		encoder.setPattern("%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n");
+		layout.start();
+		log.info("after");
 	}
 
 	@GetMapping("/test")
