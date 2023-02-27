@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  *
  * @author univ 2022/12/9 16:34
  */
-@Component
+//@Component
 /**
  * 注意，这里是以dataId与group(默认为DEFAULT_GROUP)为维度的，namespace是更全局的，是启动参数
  * autoRefreshed必须设置为true，这是同步起作用的前提；
