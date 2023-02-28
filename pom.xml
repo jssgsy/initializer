@@ -178,24 +178,13 @@
             <version>1.1.22</version>
         </dependency>
 
-        <!--nacos 配置管理用-->
+        <!--nacos 配置管理用
+        注意这里依赖的nacos-client版本，2.0.2的grpc端口偏移量固定为主端口+1000,不能手动指定，在docker情况下可能有问题。最好至少引入2.0.4及以上的版本
+        -->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-config-spring-boot-starter</artifactId>
             <version>0.2.12</version>
-            <exclusions>
-                <!--依赖的2.0.2的grpc端口固定为主端口+1000,不能手动指定，在docker情况下可能有问题，排除之，额外引入2.0.4-->
-                <exclusion>
-                    <groupId>com.alibaba.nacos</groupId>
-                    <artifactId>nacos-client</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!--引入2.0.4，可指定grp端口，参见GrpcSdkClient-->
-        <dependency>
-            <groupId>com.alibaba.nacos</groupId>
-            <artifactId>nacos-client</artifactId>
-            <version>2.0.4</version>
         </dependency>
 
         <!-- 不使用shenyu的时候不要放开如下注释，有自动启动类，但shenyu服务端没开启的话会失败-->
