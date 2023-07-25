@@ -36,3 +36,5 @@ build/
 # mysql data
 data
 standalone-logs
+
+logs
