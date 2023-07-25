@@ -1,0 +1,52 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api
+
+logback:
+  file:
+    path: ${LOGBACK_FILE_PATH:/tmp/logs}
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
+  # 多数据源的情况下，这里就不用配置了，直接配置到各自中，各自的配置类会去加载；
+  mapper-locations: classpath*:mapper/**/*.xml
+
+jasypt:
+  encryptor:
+    password: univ
+
+#nacos:
+#  config:
+    # 默认为空，即""
+#    namespace: ''
+    # 容器启动，但nacos在宿主机上；仅适用于mac
+#    server-addr: host.docker.internal:8848
+
+    # 本地使用
+#    server-addr: 127.0.0.1:8848
+
+# shenyu相关，shenyu-admin与shenyu-bootstrap需要先启动，如果需要shenyu，放下如下相关配置
+#shenyu:
+#  client:
+#    http:
+#      props:
+#        appName: initial
+#        contextPath: /api
+#        nacosNameSpace: ShenyuRegisterCenter
+#        port: 8090
+#  register:
+#    props:
+#      password: 123456
+#      username: admin
+#    registerType: http
+#    serverLists: http://localhost:9095

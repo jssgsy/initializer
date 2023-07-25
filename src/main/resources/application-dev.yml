@@ -1,0 +1,46 @@
+logback:
+  file:
+    ## 注：因为已经指定了StdOutImpl，所以这里再指定路径是不起作用的，因为都已经不是由logback进行输出了
+    ## 仅限于mybatis-plus的日志
+    path: ${user.dir}/logs
+
+# 是否将日志输送到logstash上
+logstash:
+  enabled: true
+
+mybatis-plus:
+  configuration:
+    # 开发环境只在控制台打印sql语句(除sql外的其它日志还是要看具体的配置文件)
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  datasource:
+    # 多datasource设置
+    # 重要：
+    # 1. url不再是单数据源中的url，而是jdbc-url
+    # 2. 前缀spring.datasource.druid固定的
+    druid:
+      # 开发环境一般不启动postgresql，为避免麻烦，暂时注释掉
+#      first:
+#        driver-class-name: org.postgresql.Driver
+#        password: 1234
+#        url: jdbc:postgresql://${DB_HOSTNAME:127.0.0.1}:${DB_PORT:5432}/${DB_DATABASE:univ}
+#        username: test
+
+
+      second:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: /*1Univ2mysql*/
+        # 使用容器时用这个：mysqlserver是mysql容器的容器名，当然也可以是mysql容器的ip地址
+#        url: jdbc:mysql://mysqlserver:3306/mybatis
+        url: jdbc:mysql://127.0.0.1:3306/mybatis
+        username: root
+
+      # 金仓
+#      kingbase:
+#        driver-class-name: com.kingbase8.Driver
+#        password: localkingbase
+#        url: jdbc:kingbase8://localhost:54321/jdbc
+#        username: system
+    # 此行要不要无所谓，即使指定为其它，最终也会是druid
+    type: com.alibaba.druid.pool.DruidDataSource
