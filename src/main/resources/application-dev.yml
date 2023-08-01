@@ -14,6 +14,10 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
   datasource:
     # 多datasource设置
     # 重要：
