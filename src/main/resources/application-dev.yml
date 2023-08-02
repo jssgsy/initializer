@@ -17,6 +17,10 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+    # 使用的是jedis就在jedis下配置相关项
+#    jedis:
+    # 使用的是jedis就在jedis下配置相关项
+#    lettuce:
 
   datasource:
     # 多datasource设置

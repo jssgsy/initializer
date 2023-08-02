@@ -3,6 +3,7 @@ package com.univ.initializer.service;
 
 import com.univ.initializer.entity.kingbase.KingbaseTest;
 import com.univ.initializer.event.DemoEvent;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,7 @@ public interface TestService {
      * 验证@TransactionalEventListener的适用
      * @param event
      */
+    @TransactionalEventListener
     void transactionListenDemoEvent(DemoEvent event);
 
     /**
