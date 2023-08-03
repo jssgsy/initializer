@@ -35,6 +35,7 @@ public class RedisController {
 
     /**
      * autoConfig也提供了此对象，可直接用在string-string场景下；
+     * 注，也可用在hash、list等结构上，只是要求这些类型均为String
      */
     @Resource
     private StringRedisTemplate stringRedisTemplate;
@@ -56,16 +57,7 @@ public class RedisController {
         return (String) redisTemplate.opsForValue().get(key);
     }
 
-    @GetMapping("/value/string/set")
-    public String valueStringSet(@RequestParam("key") String key, @RequestParam("value") String value) {
-        stringRedisTemplate.opsForValue().set(key, value);
-        return "value/string/set";
-    }
 
-    @GetMapping("/value/string/get")
-    public String valueStringGet(@RequestParam("key") String key) {
-        return stringRedisTemplate.opsForValue().get(key);
-    }
 
     @GetMapping("/value/obj/set")
     public String valueObjSet(@RequestParam("key") String key) {
@@ -114,6 +106,40 @@ public class RedisController {
         Object o1 = redisTemplate.opsForList().leftPop(key);
         return Arrays.asList(o, o1);
     }
+
+    /**
+     * 使用stringRedisTemplate来处理简单K-V操作
+     */
+    @GetMapping("/string/value/set")
+    public String valueStringSet(@RequestParam("key") String key, @RequestParam("value") String value) {
+        stringRedisTemplate.opsForValue().set(key, value);
+        return "value/string/set";
+    }
+
+    @GetMapping("/string/value/get")
+    public String valueStringGet(@RequestParam("key") String key) {
+        return stringRedisTemplate.opsForValue().get(key);
+    }
+
+    /**
+     * 使用stringRedisTemplate处理Hash结构
+     * 注意其与使用{@link RedisConfig}中配置的GenericJackson2JsonRedisSerializer序列化器的区别
+     *  stringRedisTemplate:要求key、hashKey、hashValue均为String类型
+     *  GenericJackson2JsonRedisSerializer：hashKey、hashValue为任意格式的json对象均可
+     */
+    @GetMapping("/string/hash/set")
+    public String stringHashSet(@RequestParam("key") String key) {
+        stringRedisTemplate.opsForHash().put(key, "name", "zhangsan");
+        stringRedisTemplate.opsForHash().put(key, "age", "18");
+        stringRedisTemplate.opsForHash().put(key, "married", "true");
+        return "hash/set ok";
+    }
+
+    @GetMapping("/string/hash/get")
+    public List stringHashGet(@RequestParam("key") String key) {
+        return stringRedisTemplate.opsForHash().multiGet(key, Arrays.asList("name", "age", "married"));
+    }
+
 
     public static void main(String[] args) {
         /*JdkSerializationRedisSerializer serializer = new JdkSerializationRedisSerializer(null);
