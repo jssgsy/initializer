@@ -25,6 +25,11 @@ jasypt:
   encryptor:
     password: univ
 
+spring:
+  jackson:
+    # 配置涉及序列化场景中以java.util.Date类型的默认处理
+    date-format: "yyyy-MM-dd HH:mm:ss"
+
 #nacos:
 #  config:
     # 默认为空，即""
