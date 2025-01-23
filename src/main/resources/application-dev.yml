@@ -38,11 +38,12 @@ spring:
 
       second:
         driver-class-name: com.mysql.jdbc.Driver
-        password: /*1Univ2mysql*/
-        # 使用容器时用这个：mysqlserver是mysql容器的容器名，当然也可以是mysql容器的ip地址
-#        url: jdbc:mysql://mysqlserver:3306/mybatis
-        url: jdbc:mysql://127.0.0.1:3306/mybatis
         username: root
+        password: root
+        # 使用容器时用这个：mysqlserver是mysql容器的容器名，当然也可以是mysql容器的ip地址
+#        url: jdbc:mysql://mysqlserver:3316/mybatis
+        url: jdbc:mysql://127.0.0.1:3316/mybatis
+
 
       # 金仓
 #      kingbase:
