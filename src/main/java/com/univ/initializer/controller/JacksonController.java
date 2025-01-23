@@ -54,6 +54,27 @@ public class JacksonController {
         return R.data(jacksonObj);
     }
 
+    /**
+     * 此时更加不涉及反序列化，{@link com.univ.initializer.config.JacksonConfig}自然不会起作用
+     * 需要对应的处理方法：这里其实是类型转换
+     *
+     * 正确的做法{@link #param1V2(Date, LocalDate, LocalDateTime)}
+     */
+    @GetMapping("/param/p1")
+    public R<LocalDateTime> param1(LocalDateTime localDateTime) {
+        return R.data(localDateTime);
+    }
+
+    @GetMapping("/param/p1/v2")
+    public R<LocalDateTime> param1V2(
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH/mm/ss") Date date,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate localDate,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime localDateTime) {
+        System.out.println("date: " + date);
+        System.out.println("localDate: " + localDate);
+        System.out.println("localDateTime: " + localDateTime);
+        return R.data(localDateTime);
+    }
 
 }
 
