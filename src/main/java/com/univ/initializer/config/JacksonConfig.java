@@ -14,8 +14,6 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * 注，jackson在序列化时才介入，类型转换是不会介入的
- * @author univ
- * date 2023/8/29
  */
 @Configuration
 public class JacksonConfig {
