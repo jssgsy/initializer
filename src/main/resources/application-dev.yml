@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    # 要不要无所谓
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# 多数据源
+first:
+  db:
+    driver-class-name: com.mysql.jdbc.Driver
+    # 多数据源时url不再是单数据源中的url，而是jdbc-url
+    jdbc-url: jdbc:mysql://localhost:3316/jdbc?useAffectedRows=true
+    password: root
+    username: root
+
+second:
+  db:
+    driver-class-name: com.mysql.jdbc.Driver
+    # 多数据源时url不再是单数据源中的url，而是jdbc-url
+    jdbc-url: jdbc:mysql://localhost:3316/mybatis?useAffectedRows=true
+    password: root
+    username: root
+
+mybatis-plus:
+  configuration:
+    # 开发环境只在控制台打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

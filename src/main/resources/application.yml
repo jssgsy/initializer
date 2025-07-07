@@ -1,0 +1,20 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api
+
+jasypt:
+  encryptor:
+    password: univ
+logback:
+  file:
+    path: ${LOGBACK_FILE_PATH:/tmp/logs}
+
+mybatis-plus:
+  configuration:
+    # 线上默认用slf4j，本地输出到控制台即可
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    # 多数据源的情况下，这里就不用配置了，直接配置到各自中，各自的配置类会去加载；
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/dynamic/*.xml
+
