@@ -177,6 +177,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-starter</artifactId>
+            <version>1.12.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
