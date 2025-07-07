@@ -18,3 +18,8 @@ mybatis-plus:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/dynamic/*.xml
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
